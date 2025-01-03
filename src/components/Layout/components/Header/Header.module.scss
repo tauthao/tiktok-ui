@@ -1,4 +1,9 @@
 .wrapper {
+    --search-border-radius: 92px;
+    --search-height: 46px;
+    --search-top-space: 9px;
+    --search-button-width: 52px;
+
     width: 100%;
     height: var(--default-layout-header-height, 60px);
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px;
@@ -10,4 +15,70 @@
     height: 100%;
     width: 100%;
     max-width: var(--default-layout-width);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search {
+    display: flex;
+    width: 361px;
+    height: var(--search-height);
+    padding-left: 16px;
+    background: rgba(22, 24, 35, 0.06);
+    border-radius: var(--search-border-radius);
+    border: 1.5px solid transparent;
+    position: relative;
+    input {
+        flex: 1;
+        height: 100%;
+        background: transparent;
+        color: rgb(22, 24, 35);
+        caret-color: var(--primary);
+    }
+    &:focus-within {
+        border-color: rgba(22, 24, 35, 0.2);
+    }
+    input:not(:placeholder-shown) ~ .search-btn {
+        color: rgba(22, 24, 35, 0.75);
+        background: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.clear,
+.loading {
+    position: absolute;
+    right: calc(var(--search-button-width) + 16px);
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(22, 24, 35, 0.34);
+    cursor: pointer;
+}
+
+.search-btn {
+    width: var(--search-button-width);
+    height: 100%;
+    border-top-right-radius: var(--search-border-radius);
+    border-bottom-right-radius: var(--search-border-radius);
+    color: rgba(22, 24, 35, 0.34);
+    font-size: 1.8rem;
+    position: relative;
+    &:hover {
+        cursor: pointer;
+        background: rgba(22, 24, 35, 0.03);
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        top: var(--search-top-space);
+        right: var(--search-button-width);
+        width: 1px;
+        height: calc(var(--search-height) - var(--search-top-space) * 2);
+        border-radius: 50%;
+        background: rgba(22, 24, 35, 0.12);
+        animation: rotate 1s infinite linear;
+    }
+    &:active {
+        background: rgba(22, 24, 35, 0.06);
+    }
 }
