@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleQuestion,
     faCircleXmark,
-    faCloudUpload,
     faCoins,
     faEarthAsia,
     faEllipsisVertical,
@@ -25,6 +24,8 @@ import Button from '~/components/Button';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AcountItem from '~/components/AcountItem';
 import Menu from '~/components/Popper/Menu';
+import { UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
@@ -142,7 +143,7 @@ function Header() {
                         <>
                             <Tippy delay={[0, 200]} content="Upload video" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                    <UploadIcon />
                                 </button>
                             </Tippy>
                         </>
@@ -155,10 +156,11 @@ function Header() {
 
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuOnChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
                                 src="https://p16-sign-sg.tiktokcdn.com/aweme/720x720/tos-alisg-avt-0068/7322875741526294530.jpeg?lk3s=a5d48078&nonce=78896&refresh_token=9f3d981e520a1f9d3df998107c848548&x-expires=1736038800&x-signature=0VIVWfKAO5C1LcpawPbFlEUK%2BSQ%3D&shp=a5d48078&shcp=81f88b70"
                                 alt="Nguyen Van A"
+                                fallBack="https://scontent.fsgn2-11.fna.fbcdn.net/v/t39.30808-6/438302306_2224874204518812_4474123967831732211_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=muVHuM3Xt1gQ7kNvgGE-YHE&_nc_oc=AdhErnnTWd9FpocVpQn5OPSUjzZ0o_MGv1yDWo1VbhaLXW2jPZ3Ptb8X6hLbWwYHZYM&_nc_zt=23&_nc_ht=scontent.fsgn2-11.fna&_nc_gid=Ac16HOFLMeIi8vP9EhJHfov&oh=00_AYBoynOEs58wt2tCITigHQAC36X6bElxkygsTi9kgOz-wQ&oe=67818618"
                             />
                         ) : (
                             <button className={cx('more-btn')}>
