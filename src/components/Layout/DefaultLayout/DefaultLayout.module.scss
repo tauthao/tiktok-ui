@@ -6,6 +6,7 @@
 .container {
     width: 100%;
     max-width: var(--default-layout-width);
+    padding: 0px var(--default-layout-horizontal-spacer);
     display: flex;
     justify-content: space-between;
 }
