@@ -17,6 +17,7 @@
         background: transparent;
         color: rgb(22, 24, 35);
         caret-color: var(--primary);
+        font-family: var(--font-family);
     }
     &:focus-within {
         border-color: rgba(22, 24, 35, 0.2);
