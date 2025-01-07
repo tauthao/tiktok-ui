@@ -9,10 +9,10 @@ function Image({ src, alt, className, fallBack: customFallBack = images.noImage,
     };
     return (
         <img
+            className={classNames(styles.wrapper, className)}
             ref={ref}
             src={fallBack || src}
             alt={alt}
-            className={classNames(styles.wrapper, className)}
             {...props}
             onError={handleOnError}
         />
