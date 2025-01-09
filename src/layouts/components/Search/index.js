@@ -4,16 +4,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 
-import * as searchServices from '~/apiServices/searchServices';
-import AcountItem from '~/components/AcountItem';
+import * as searchServices from '~/services/searchService';
+import AccountItem from '~/components/AccountItem';
 import classNames from 'classnames/bind';
-import styles from './Search.modue.scss';
+import styles from './Search.module.scss';
 import { SearchIcon } from '~/components/Icons';
 import { useDebounce } from '~/hooks';
 
 const cx = classNames.bind(styles);
 
-function Searh() {
+function Search() {
     const [searchValue, setSearchValue] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [showResults, setShowResults] = useState(true);
@@ -69,7 +69,7 @@ function Searh() {
                         <PopperWrapper>
                             <h3 className={cx('search-title')}>Accounts</h3>
                             {searchResults.map((result) => (
-                                <AcountItem key={result.id} data={result} />
+                                <AccountItem key={result.id} data={result} />
                             ))}
                         </PopperWrapper>
                     </div>
@@ -102,4 +102,4 @@ function Searh() {
     );
 }
 
-export default Searh;
+export default Search;
